@@ -46,11 +46,11 @@ def render_and_check(
 
 
 __all__ = [
-    "TemplateEngine",
+    "EventContext",
     "QualityChecker",
     "QualityReport",
     "RegistryLoader",
-    "EventContext",
     "RenderResult",
+    "TemplateEngine",
     "render_and_check",
 ]
