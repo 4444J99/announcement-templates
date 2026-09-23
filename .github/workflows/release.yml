@@ -1,0 +1,54 @@
+name: Release Automation
+
+on:
+  push:
+    tags:
+      - 'v*'
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[build,dev]"
+
+      - name: Run tests & quality checks
+        run: |
+          python -m pytest tests/ -v
+          python -m ruff check kerygma_templates/
+          python -m kerygma_templates validate
+
+      - name: Export data artifacts
+        run: |
+          python -m kerygma_templates.data_export
+
+      - name: Build package distribution artifacts
+        run: |
+          python -m build
+
+      - name: Publish GitHub Release Artifacts
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'release'
+        with:
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+            data/template-registry.json
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

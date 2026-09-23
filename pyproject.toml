@@ -6,9 +6,28 @@ build-backend = "setuptools.build_meta"
 name = "announcement-templates"
 version = "0.2.0"
 description = "Template engine and announcement library for ORGAN VII Kerygma distribution"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "4444J99" }]
 requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/organvm-vii-kerygma/announcement-templates"
+Repository = "https://github.com/organvm-vii-kerygma/announcement-templates"
+Changelog = "https://github.com/organvm-vii-kerygma/announcement-templates/blob/main/CHANGELOG.md"
+Issues = "https://github.com/organvm-vii-kerygma/announcement-templates/issues"
 
 [project.optional-dependencies]
+build = ["build>=1.0.0"]
 dev = ["pytest>=7.0", "ruff>=0.4.0"]
 
 [project.scripts]

@@ -19,6 +19,7 @@ This repository provides the structured alternative: a template for every announ
 ## Table of Contents
 
 - [Overview](#overview)
+- [Activation Check](#activation-check)
 - [Target Audiences](#target-audiences)
 - [Template Categories](#template-categories)
 - [Platform-Specific Formats](#platform-specific-formats)
@@ -51,6 +52,39 @@ The library is organized along two axes: **announcement type** (what kind of eve
 3. **Machine-Readable Inputs.** Templates consume data from `registry-v2.json` and the orchestration hub's governance files. Repository names, descriptions, organ assignments, documentation status, and dependency relationships are injected automatically, reducing manual transcription errors and keeping announcements synchronized with the actual state of the system.
 
 4. **Quality Gates Before Publication.** Every template includes a pre-publication checklist. No announcement ships without confirming: factual accuracy (cross-checked against registry), link validity (all URLs tested), tone compliance (reviewed against voice guide), platform format compliance (character limits, embed constraints), and strategic alignment (does this announcement serve the current phase's goals?).
+
+---
+
+## Activation Check
+
+- **Release Artifact URL:** [https://github.com/organvm-vii-kerygma/announcement-templates/releases/tag/v0.2.0](https://github.com/organvm-vii-kerygma/announcement-templates/releases/tag/v0.2.0)
+- **Status:** Active / Shipped Package
+
+### Installation & Quickstart
+
+Install directly from the tagged release or repository:
+
+```bash
+pip install git+https://github.com/organvm-vii-kerygma/announcement-templates.git@v0.2.0
+```
+
+### Smoke Usage Commands
+
+Verify installation and execution of the CLI and Python library:
+
+```bash
+# List all registered templates
+announce list
+
+# Render a template for a target channel
+announce render repo-launch mastodon
+
+# Run quality checks on rendered output
+announce check repo-launch mastodon
+
+# Python Library One-Call API:
+python -c "from kerygma_templates import render_and_check; res, rpt = render_and_check('repo-launch', 'mastodon'); print(rpt.summary())"
+```
 
 ---
 

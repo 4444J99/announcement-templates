@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-02-24T16:31:21.473014+00:00",
+  "generated_at": "2026-09-23T05:56:10.087910+00:00",
   "organ": "VII",
   "organ_name": "Kerygma",
   "repo": "announcement-templates",
-  "template_count": 16,
+  "template_count": 18,
   "categories": [
     "community",
     "essay",
@@ -34,6 +34,28 @@
         "milestone.summary",
         "milestone.source_organ",
         "milestone.issue_url"
+      ]
+    },
+    {
+      "template_id": "contribution-merged",
+      "category": "community",
+      "channels": [
+        "mastodon",
+        "discord",
+        "bluesky",
+        "linkedin",
+        "ghost"
+      ],
+      "variables": [
+        "contrib.project_name",
+        "contrib.project_org",
+        "contrib.pr_number",
+        "contrib.pr_title",
+        "contrib.pr_url",
+        "contrib.problem",
+        "contrib.solution",
+        "contrib.language",
+        "contrib.project_significance"
       ]
     },
     {
@@ -140,6 +162,26 @@
         "event.series_name",
         "event.part_number",
         "event.date"
+      ]
+    },
+    {
+      "template_id": "weekly-digest",
+      "category": "essay",
+      "channels": [
+        "ghost"
+      ],
+      "variables": [
+        "digest.week_label",
+        "digest.essay_1_title",
+        "digest.essay_1_url",
+        "digest.essay_1_summary",
+        "digest.essay_2_title",
+        "digest.essay_2_url",
+        "digest.essay_2_summary",
+        "digest.essay_3_title",
+        "digest.essay_3_url",
+        "digest.essay_3_summary",
+        "digest.site_url"
       ]
     },
     {
@@ -313,10 +355,10 @@
     "twitter": 280
   },
   "quality_summary": {
-    "total_checks": 432,
-    "passed": 422,
-    "failed": 6,
-    "warnings": 4,
+    "total_checks": 468,
+    "passed": 446,
+    "failed": 12,
+    "warnings": 10,
     "failure_details": [
       {
         "template_id": "community-milestone",
@@ -369,6 +411,90 @@
       },
       {
         "template_id": "community-milestone",
+        "channel": "ghost",
+        "check": "has_link",
+        "severity": "warning",
+        "message": "No links found \u2014 announcements should link to canonical content"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "mastodon",
+        "check": "unresolved_vars",
+        "severity": "error",
+        "message": "Unresolved variables: contrib.project_org, contrib.project_name, contrib.pr_title, contrib.problem, contrib.pr_url, contrib.language"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "mastodon",
+        "check": "has_link",
+        "severity": "warning",
+        "message": "No links found \u2014 announcements should link to canonical content"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "discord",
+        "check": "unresolved_vars",
+        "severity": "error",
+        "message": "Unresolved variables: contrib.project_org, contrib.project_name, contrib.pr_number, contrib.pr_title, contrib.problem, contrib.solution, contrib.language, contrib.pr_url"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "discord",
+        "check": "has_link",
+        "severity": "warning",
+        "message": "No links found \u2014 announcements should link to canonical content"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "bluesky",
+        "check": "unresolved_vars",
+        "severity": "error",
+        "message": "Unresolved variables: contrib.project_org, contrib.project_name, contrib.pr_title, contrib.pr_url"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "bluesky",
+        "check": "has_link",
+        "severity": "warning",
+        "message": "No links found \u2014 announcements should link to canonical content"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "linkedin",
+        "check": "unresolved_vars",
+        "severity": "error",
+        "message": "Unresolved variables: contrib.project_name, contrib.project_org, contrib.project_significance, contrib.problem, contrib.solution, contrib.pr_url, contrib.language"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "linkedin",
+        "check": "has_link",
+        "severity": "warning",
+        "message": "No links found \u2014 announcements should link to canonical content"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "ghost",
+        "check": "unresolved_vars",
+        "severity": "error",
+        "message": "Unresolved variables: contrib.project_name, contrib.project_org, contrib.project_name, contrib.pr_number, contrib.pr_title, contrib.pr_url, contrib.language, contrib.problem, contrib.solution, contrib.project_significance"
+      },
+      {
+        "template_id": "contribution-merged",
+        "channel": "ghost",
+        "check": "has_link",
+        "severity": "warning",
+        "message": "No links found \u2014 announcements should link to canonical content"
+      },
+      {
+        "template_id": "weekly-digest",
+        "channel": "ghost",
+        "check": "unresolved_vars",
+        "severity": "error",
+        "message": "Unresolved variables: digest.week_label, digest.essay_1_title, digest.essay_1_summary, digest.essay_1_url, digest.essay_2_title, digest.essay_2_summary, digest.essay_2_url, digest.essay_3_title, digest.essay_3_summary, digest.essay_3_url, digest.site_url"
+      },
+      {
+        "template_id": "weekly-digest",
         "channel": "ghost",
         "check": "has_link",
         "severity": "warning",

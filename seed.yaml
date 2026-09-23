@@ -14,10 +14,16 @@ metadata:
   last_validated: '2026-02-18'
   generated: '2026-02-24'
   sprint: IGNITION
+
+activation:
+  status: ACTIVE
+  artifact_url: "https://github.com/organvm-vii-kerygma/announcement-templates/releases/tag/v0.2.0"
+  smoke_command: "announce list"
+
 agents:
 - name: ci
   trigger: on_push
-  workflow: .github/workflows/ci-minimal.yml
+  workflow: .github/workflows/ci.yml
   description: Continuous integration pipeline
 produces:
   - type: template_pack
