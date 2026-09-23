@@ -8,7 +8,7 @@ No external dependencies required.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -102,7 +102,7 @@ def build_quality_summary(templates_dir: Path | None = None) -> dict[str, Any]:
                             "severity": "error",
                             "message": check.message,
                         })
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001
                 total_checks += 1
                 failed += 1
                 failure_details.append({
@@ -136,7 +136,7 @@ def export_all(
     quality = build_quality_summary(templates_dir)
 
     data = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "organ": "VII",
         "organ_name": "Kerygma",
         "repo": "announcement-templates",

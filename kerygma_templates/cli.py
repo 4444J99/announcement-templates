@@ -98,7 +98,7 @@ def cmd_validate(engine: TemplateEngine) -> None:
             try:
                 engine.render(t.template_id, context, ch)
                 print(f"  OK  {t.template_id}/{ch}")
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001
                 print(f"  FAIL {t.template_id}/{ch}: {exc}", file=sys.stderr)
                 errors += 1
     total = sum(len(t.channels) for t in templates)

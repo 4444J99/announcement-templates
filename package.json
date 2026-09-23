@@ -1,0 +1,30 @@
+{
+  "name": "announcement-templates",
+  "version": "0.2.0",
+  "description": "Template engine and announcement library for ORGAN VII Kerygma distribution",
+  "main": "kerygma_templates/__init__.py",
+  "scripts": {
+    "build": "python -m build",
+    "test": "pytest tests/ -v",
+    "lint": "ruff check kerygma_templates/",
+    "export": "python -m kerygma_templates.data_export",
+    "publish": "python -m build && gh release create v0.2.0 dist/* --title 'v0.2.0' --notes 'Official v0.2.0 release artifact'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/organvm-vii-kerygma/announcement-templates.git"
+  },
+  "keywords": [
+    "organvm",
+    "kerygma",
+    "templates",
+    "announcements",
+    "publishing"
+  ],
+  "author": "4444J99",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/organvm-vii-kerygma/announcement-templates/issues"
+  },
+  "homepage": "https://github.com/organvm-vii-kerygma/announcement-templates#readme"
+}

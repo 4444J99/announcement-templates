@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -117,7 +117,7 @@ class RegistryLoader:
                 "summary": event.summary,
                 "url": event.url,
                 "version": event.version,
-                "date": event.date or datetime.now().strftime("%Y-%m-%d"),
+                "date": event.date or datetime.now(UTC).strftime("%Y-%m-%d"),
                 "tags": event.tags,
             },
         }
